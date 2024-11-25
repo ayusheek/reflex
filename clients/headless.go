@@ -8,7 +8,11 @@ import (
 )
 
 func SendHeadlessRequest(url string, showBrowser bool) (string, error) {
-	ctx, cancel := chromedp.NewContext(context.Background())
+	opts := append(chromedp.DefaultExecAllocatorOptions[:], chromedp.Flag("headless", showBrowser))
+	allocCtx, cancel := chromedp.NewExecAllocator(context.Background(), opts...)
+	defer cancel()
+
+	ctx, cancel := chromedp.NewContext(allocCtx)
 	defer cancel()
 
 	var resp string
