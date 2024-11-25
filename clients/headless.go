@@ -19,7 +19,7 @@ func SendHeadlessRequest(url string, showBrowser bool) (string, error) {
 	)
 
 	if err != nil {
-		return "", fmt.Errorf("error extracting dom: %s", &err)
+		return "", fmt.Errorf("error extracting dom: %s", err)
 	}
 
 	return resp, nil
