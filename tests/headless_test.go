@@ -8,7 +8,7 @@ import (
 
 func TestSendHeadlessRequest(t *testing.T) {
 	url := "https://ifconfig.me/all"
-	var showBrowser bool = true
+	var showBrowser bool = false
 	body, err := clients.SendHeadlessRequest(url, showBrowser)
 	if err != nil {
 		t.Fatalf("Error: %v", err)
