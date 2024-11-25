@@ -11,8 +11,8 @@ func TestSendHTTPRequest(t *testing.T) {
 	url := "https://ifconfig.me/all"
 
 	headers := map[string]string{
-		"UserAgent": "reflex/1.0",
-		"Accept":    "*/*",
+		"User-Agent": "reflex/1.0",
+		"Accept":     "*/*",
 	}
 
 	body, err := clients.SendHTTPRequest(url, timeout, headers)
